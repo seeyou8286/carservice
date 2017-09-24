@@ -1,0 +1,7 @@
+spring:
+  data:
+    mongodb:
+      uri: "mongodb://119.23.224.66:27017/car"
+
+server:
+    port: 5000
