@@ -9,7 +9,9 @@ import java.util.List;
  * Created by summer on 2017/5/5.
  */
 @Data
-public class Cities implements Serializable {
+public class ParkingLot implements Serializable {
         private static final long serialVersionUID = -3258839839160856613L;
-        private List<String> names;
+        private String cityName;
+        private List<String> airportName;
+        private List<String> placeName;
 }
