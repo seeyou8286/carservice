@@ -1,0 +1,61 @@
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# Maven #
+target/
+
+# Gradle #
+.gradle
+build/
+
+# Eclipse Files #
+.classpath
+.project
+.metadata
+bin/
+.settings/
+
+# Intellij Files #
+.idea/**
+*.iml
+**/LOG_HOME_IS_UNDEFINED/
+**/LOG_HOME_IS_UNDEFINED
+velocity.log*
+misc.xml
+
+#Mac Backup files
+.DS_Store
+
+#test outputs
+test-output/**
+Logs/**
+Common/Logs/**
+Services/Services/**
+Services/Logs/**
+
+#ignore version backup file created by mvn versions:set
+*.versionsBackup
+Common/.project
+
+DataAccess/.project
+
+Domain/.project
+
+DataAccess/logs/trans/LISTransaction.log
+
+DataAccess/logs/event/LISEvent.log
+
+DataAccess/logs/rqrs/LISRequestResponse.log
+
+Common/src/main/java/com/expedia/lis/common/logging/LISLoggerSample.java
+
+Common/.project
+
+DataAccess/.project
+
+Domain/.project
+settings.xml
