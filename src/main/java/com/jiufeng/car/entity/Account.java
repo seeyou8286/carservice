@@ -2,8 +2,11 @@ package com.jiufeng.car.entity;
 
 import lombok.Data;
 
+import java.io.Serializable;
+
 @Data
-public class Account {
+public class Account implements Serializable {
+    private static final long serialVersionUID = -3258839839160856613L;
     private String phoneNumber;
     private String password;
 

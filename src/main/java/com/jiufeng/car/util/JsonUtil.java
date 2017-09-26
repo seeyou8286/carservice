@@ -25,9 +25,6 @@ public class JsonUtil
 
     static
     {
-
-        objectMapper.setPropertyNamingStrategy(new com.fasterxml.jackson.databind.PropertyNamingStrategy.PascalCaseStrategy());
-        objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         objectMapper.registerModule(new JodaModule());
     }
 

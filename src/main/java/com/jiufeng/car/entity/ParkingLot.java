@@ -14,4 +14,7 @@ public class ParkingLot implements Serializable {
         private String cityName;
         private List<String> airportName;
         private List<String> placeName;
+
+        public ParkingLot() {
+        }
 }
