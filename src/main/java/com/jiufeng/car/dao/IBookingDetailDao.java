@@ -1,7 +1,6 @@
 package com.jiufeng.car.dao;
 
 import com.jiufeng.car.entity.BookingDetail;
-import com.jiufeng.car.entity.ParkingLot;
 
 import java.util.List;
 

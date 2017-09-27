@@ -1,9 +1,7 @@
 package com.jiufeng.car.controller;
 
 import com.jiufeng.car.dao.IAccountDao;
-import com.jiufeng.car.dao.IParkingLotDao;
 import com.jiufeng.car.entity.Account;
-import com.jiufeng.car.entity.ParkingLot;
 import com.jiufeng.car.entity.Response;
 import com.jiufeng.car.util.JsonUtil;
 import com.jiufeng.car.util.StringUtil;
@@ -13,8 +11,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 /**
  * Created by Chen Chao on 3/17/2017.
