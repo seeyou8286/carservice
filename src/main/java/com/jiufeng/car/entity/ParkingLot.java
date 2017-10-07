@@ -1,14 +1,12 @@
 package com.jiufeng.car.entity;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
 public class ParkingLot implements Serializable {
     private static final long serialVersionUID = -3258839839160856613L;
@@ -19,5 +17,4 @@ public class ParkingLot implements Serializable {
     private String airportName;
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private String cityName;
-
 }

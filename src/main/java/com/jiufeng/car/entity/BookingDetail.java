@@ -1,6 +1,7 @@
 package com.jiufeng.car.entity;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.joda.time.DateTime;
 
 import java.io.Serializable;
@@ -9,6 +10,7 @@ import java.io.Serializable;
  * Created by chachen on 9/26/2017.
  */
 @Data
+@NoArgsConstructor
 public class BookingDetail implements Serializable {
     private static final long serialVersionUID = -3258839839160856613L;
     private String phoneNumber; //Compulsory
@@ -18,8 +20,4 @@ public class BookingDetail implements Serializable {
     private Integer peopleCounts;
     private String carCounts;
     private String placeName;  //Compulsory
-
-    public BookingDetail() {
-    }
-
 }
