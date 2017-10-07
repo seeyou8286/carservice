@@ -14,7 +14,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class ParkingLotDaoTest {
 
     @Autowired
-    private IParkingLotsDao citiesDao;
+    private IParkingLotDao citiesDao;
 
     @Test
     public void testSaveUser() throws Exception {

@@ -1,8 +1,10 @@
 package com.jiufeng.car.controller;
 
-import com.jiufeng.car.dao.IParkingLotsDao;
-import com.jiufeng.car.entity.ParkingsLots;
+import com.jiufeng.car.dao.IParkingLotDao;
+import com.jiufeng.car.entity.ParkingLot;
+import com.jiufeng.car.entity.Response;
 import com.jiufeng.car.util.JsonUtil;
+import com.jiufeng.car.util.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -20,7 +22,7 @@ import java.util.List;
 public class ParkingLotsController {
 
     @Autowired
-    IParkingLotsDao parkingLotsDao;
+    IParkingLotDao parkingLotsDao;
 
 
     @RequestMapping
@@ -30,9 +32,11 @@ public class ParkingLotsController {
                     consumes = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<?> saveParkingLot(@RequestHeader HttpHeaders requestHeader,
                                             @RequestBody String requestBody) throws Exception {
-        ParkingsLots parkingLot = JsonUtil.fromJson(requestBody, ParkingsLots.class);
+        ParkingLot parkingLot = JsonUtil.fromJson(requestBody, ParkingLot.class);
         parkingLotsDao.save(parkingLot);
-        ResponseEntity responseEntity = new ResponseEntity(HttpStatus.OK);
+        Response response = new Response();
+        response.setStatus(StringUtil.SUCCESS);
+        ResponseEntity responseEntity = new ResponseEntity(response,HttpStatus.OK);
         return responseEntity;
     }
 
@@ -44,9 +48,17 @@ public class ParkingLotsController {
                     consumes = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<?> findByAirportName(@RequestHeader HttpHeaders requestHeader,
                                                  @RequestBody String requestBody) throws Exception {
-        ParkingsLots parkingLot = JsonUtil.fromJson(requestBody, ParkingsLots.class);
-        List<ParkingsLots> parkingLotList = parkingLotsDao.findByAirportName(parkingLot);
-        ResponseEntity responseEntity = new ResponseEntity(parkingLotList, HttpStatus.OK);
+        ParkingLot parkingLot = JsonUtil.fromJson(requestBody, ParkingLot.class);
+        List<ParkingLot> parkingsLots = parkingLotsDao.findByAirportName(parkingLot);
+        ResponseEntity responseEntity;
+        if(parkingsLots == null)
+        {
+            Response response = new Response(StringUtil.ERROR,"Record not found.");
+            responseEntity = new ResponseEntity(response, HttpStatus.OK);
+        }else
+        {
+            responseEntity= new ResponseEntity(parkingsLots, HttpStatus.OK);
+        }
         return responseEntity;
     }
 
