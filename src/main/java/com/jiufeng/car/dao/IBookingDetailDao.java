@@ -10,7 +10,9 @@ import java.util.List;
 public interface IBookingDetailDao {
     void save(BookingDetail bookingDetail);
 
-    List<BookingDetail> findAll();
+    List<BookingDetail> findAllByParkingLotName(BookingDetail bookingDetail);
+
+    List<BookingDetail> findAllByPhoneNumber(BookingDetail bookingDetail);
 
     int updateByCityName(BookingDetail bookingDetail);
 

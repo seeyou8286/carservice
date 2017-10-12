@@ -44,14 +44,22 @@ public class BookingController {
 
 
     @RequestMapping
-            (value = {"/findall"},
-                    method = {RequestMethod.GET},
+            (value = {"/findmybooking"},
+                    method = {RequestMethod.POST},
                     produces = {MediaType.APPLICATION_JSON_VALUE},
                     consumes = {MediaType.APPLICATION_JSON_VALUE})
-    public ResponseEntity<?> findAllParkingPlaces(@RequestHeader HttpHeaders requestHeader) throws Exception {
-        List<BookingDetail> airportList = bookingDetailDao.findAll();
-        ResponseEntity responseEntity = new ResponseEntity(airportList, HttpStatus.OK);
+    public ResponseEntity<?> findmybooking(@RequestBody String requestBody) throws Exception {
+        BookingDetail bookingDetail = JsonUtil.fromJson(requestBody, BookingDetail.class);
+        List<BookingDetail> bookingDetails = bookingDetailDao.findAllByPhoneNumber(bookingDetail);
+        ResponseEntity responseEntity;
+        if(bookingDetails == null)
+        {
+            Response response = new Response(StringUtil.ERROR,"Record not found.");
+            responseEntity = new ResponseEntity(response, HttpStatus.OK);
+        }else
+        {
+            responseEntity = new ResponseEntity(JsonUtil.toJson(bookingDetails), HttpStatus.OK);
+        }
         return responseEntity;
     }
-
 }

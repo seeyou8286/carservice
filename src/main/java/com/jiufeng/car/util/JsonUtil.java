@@ -13,6 +13,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.joda.JodaModule;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 
 /**
  * Json util class - marshal/unmarshal json format request and response etc.
@@ -26,6 +27,7 @@ public class JsonUtil
     static
     {
         objectMapper.registerModule(new JodaModule());
+        objectMapper.setDateFormat(new SimpleDateFormat("yyyy-MM-dd HH:mm"));
     }
 
     private JsonUtil()

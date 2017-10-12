@@ -22,18 +22,18 @@ public class BookingDetail implements Serializable {
     private String plateNumber; //Compulsory
     private Integer peopleCounts;
     private String carCounts;
-    private String placeName;  //Compulsory
+    private String parkingLotName;  //Compulsory
     private Integer totalPrice;
     private Integer bookingFee;
 
-    public BookingDetail(String phoneNumber, DateTime startTime, DateTime endTime, String plateNumber, Integer peopleCounts, String carCounts, String placeName, Integer totalPrice, Integer bookingFee) {
+    public BookingDetail(String phoneNumber, DateTime startTime, DateTime endTime, String plateNumber, Integer peopleCounts, String carCounts, String parkingLotName, Integer totalPrice, Integer bookingFee) {
         this.phoneNumber = phoneNumber;
         this.startTime = startTime;
         this.endTime = endTime;
         this.plateNumber = plateNumber;
         this.peopleCounts = peopleCounts;
         this.carCounts = carCounts;
-        this.placeName = placeName;
+        this.parkingLotName = parkingLotName;
         this.totalPrice = totalPrice;
         this.bookingFee = bookingFee;
     }
