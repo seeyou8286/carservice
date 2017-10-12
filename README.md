@@ -1,9 +1,11 @@
-CarService
+CarService       
 =========================
 
 This is a web service to do CRUD for MongoDB in Alibaba Cloud
 
-
+Jenkins Job
+=========================
+http://119.23.224.66:8081/job/build_carservice/
 
 MongoDB
 =========================
@@ -21,11 +23,10 @@ How to run
 APIs
 =========================
 To access swagger-uiswagger-ui
-http://localhost:8080/swagger-ui.html
+http://localhost:5000/swagger-ui.html
 
 
 How to visit on web?
 =========================
 The web service is install on Heroku.
-You can visit it from https://carparkingservice.herokuapp.com/
-* If you need access for Heroku. Please contact me for adding collaborator.
+You can visit it from http://119.23.224.66:5000/
