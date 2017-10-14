@@ -17,6 +17,8 @@ public class BookingDetail implements Serializable {
     private String id;
     private String phoneNumber; //Compulsory
     @JsonFormat(pattern="yyyy-MM-dd HH:mm")
+    private DateTime bookingTime; //Compulsory
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm")
     private DateTime startTime; //Compulsory
     @JsonFormat(pattern="yyyy-MM-dd HH:mm")
     private DateTime endTime;   //Compulsory

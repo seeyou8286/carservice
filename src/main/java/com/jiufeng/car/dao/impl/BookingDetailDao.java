@@ -9,6 +9,7 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -41,7 +42,7 @@ public class BookingDetailDao implements IBookingDetailDao {
         List<BookingDetail> bookingDetails =  mongoTemplate.find(query, BookingDetail.class);
         if(bookingDetails  == null || bookingDetails.size() ==0)
         {
-            return null;
+            return new ArrayList<>();
         }
         return bookingDetails;
     }

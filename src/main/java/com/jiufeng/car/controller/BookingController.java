@@ -52,14 +52,7 @@ public class BookingController {
         BookingDetail bookingDetail = JsonUtil.fromJson(requestBody, BookingDetail.class);
         List<BookingDetail> bookingDetails = bookingDetailDao.findAllByPhoneNumber(bookingDetail);
         ResponseEntity responseEntity;
-        if(bookingDetails == null)
-        {
-            Response response = new Response(StringUtil.ERROR,"Record not found.");
-            responseEntity = new ResponseEntity(response, HttpStatus.OK);
-        }else
-        {
-            responseEntity = new ResponseEntity(JsonUtil.toJson(bookingDetails), HttpStatus.OK);
-        }
+        responseEntity = new ResponseEntity(JsonUtil.toJson(bookingDetails), HttpStatus.OK);
         return responseEntity;
     }
 }
