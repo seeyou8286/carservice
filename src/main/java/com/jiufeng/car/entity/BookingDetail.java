@@ -14,6 +14,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 public class BookingDetail implements Serializable {
     private static final long serialVersionUID = -3258839839160856613L;
+    private String id;
     private String phoneNumber; //Compulsory
     @JsonFormat(pattern="yyyy-MM-dd HH:mm")
     private DateTime startTime; //Compulsory
@@ -26,7 +27,8 @@ public class BookingDetail implements Serializable {
     private Integer totalPrice;
     private Integer bookingFee;
 
-    public BookingDetail(String phoneNumber, DateTime startTime, DateTime endTime, String plateNumber, Integer peopleCounts, String carCounts, String parkingLotName, Integer totalPrice, Integer bookingFee) {
+    public BookingDetail(String id, String phoneNumber, DateTime startTime, DateTime endTime, String plateNumber, Integer peopleCounts, String carCounts, String parkingLotName, Integer totalPrice, Integer bookingFee) {
+        this.id = id;
         this.phoneNumber = phoneNumber;
         this.startTime = startTime;
         this.endTime = endTime;
