@@ -1,6 +1,7 @@
 package com.jiufeng.car.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.jiufeng.car.enumeration.BookingStatusEnum;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.joda.time.DateTime;
@@ -27,7 +28,9 @@ public class BookingDetail implements Serializable {
     private String carCounts;
     private String parkingLotName;  //Compulsory
     private Integer totalPrice;
+    private BookingStatusEnum bookingStatus;
     private Integer bookingFee;
+
 
     public BookingDetail(String id, String phoneNumber, DateTime startTime, DateTime endTime, String plateNumber, Integer peopleCounts, String carCounts, String parkingLotName, Integer totalPrice, Integer bookingFee) {
         this.id = id;
