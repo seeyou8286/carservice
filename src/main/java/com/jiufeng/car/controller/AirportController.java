@@ -1,5 +1,7 @@
 package com.jiufeng.car.controller;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jiufeng.car.dao.IAirportDao;
 import com.jiufeng.car.entity.Airport;
 import com.jiufeng.car.entity.Response;
@@ -12,6 +14,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -23,6 +26,24 @@ public class AirportController {
 
     @Autowired
     IAirportDao airportDao;
+
+    @RequestMapping
+            (value = {"/saveAll"},
+                    method = {RequestMethod.POST},
+                    produces = {MediaType.APPLICATION_JSON_VALUE},
+                    consumes = {MediaType.APPLICATION_JSON_VALUE})
+    public ResponseEntity<?> saveAllParkingLot(@RequestHeader HttpHeaders requestHeader,
+                                            @RequestBody String requestBody) throws Exception {
+        List<Airport> airports = JsonUtil.fromJsonArray(requestBody, new TypeReference<List<Airport>>() {});
+        for(Airport airport:airports)
+        {
+            airportDao.save(airport);
+        }
+        Response response = new Response();
+        response.setStatus(StringUtil.SUCCESS);
+        ResponseEntity responseEntity = new ResponseEntity(response,HttpStatus.OK);
+        return responseEntity;
+    }
 
 
     @RequestMapping

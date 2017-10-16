@@ -8,6 +8,7 @@
 package com.jiufeng.car.util;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.joda.JodaModule;
@@ -43,6 +44,17 @@ public class JsonUtil
         }
 
         return objectMapper.readValue(request, clazz);
+    }
+
+    public static <T> T fromJsonArray(String request,TypeReference valueTypeRef)
+            throws IOException
+    {
+        if (request == null)
+        {
+            return null;
+        }
+
+        return objectMapper.readValue(request, valueTypeRef);
     }
 
     public static String toJson(Object response)
