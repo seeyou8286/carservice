@@ -17,4 +17,5 @@ public class ParkingLot implements Serializable {
     private String airportName;
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private String cityName;
+    private String address;
 }
